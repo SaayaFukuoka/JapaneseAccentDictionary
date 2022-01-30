@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('words', 'WordController');
+
+Route::resource('likes', 'LikeController')->only([
+    'index', 'store', 'destroy'
+  ]);
+
