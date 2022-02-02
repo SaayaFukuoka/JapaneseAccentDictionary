@@ -3,16 +3,26 @@
 @section('title', $title)
 
 @section('content')
-<main class="main_add">
-    <h1>アクセントを追加</h1>
+<main class="main_create">
+    <h1>単語を追加</h1>
     <div>
-        <form>
+        <form method="POST" 
+        action="{{ route('words.store') }}"
+        enctype="multipart/form-data">
         @csrf
         <div>
             <label>
-                単語1:
+                単語:
                 <div>
-                    <input type="text" name="name">
+                    <input type="text" name="word">
+                </div>
+            </label>
+        </div>
+        <div>
+            <label>
+                ひらがな:
+                <div>
+                    <input type="text" name="word_hiragana">
                 </div>
             </label>
         </div>
@@ -20,52 +30,44 @@
             <label>
                 アクセント:
                 <div>
-                    <input type="text" name="name">
+                    <input type="text" name="word_accent">
                 </div>
             </label>
         </div>
         <div>
             <label>
                 音声ファイル:
-                <input type="file" name="audio">
+                <input type="file" name="word_audio">
             </label>
         </div>
             <div>
             <label>
                 例文:
                 <div>
-                    <textarea name="description" rows="10" cols="50"></textarea>
-                </div>
-            </label>
-        </div>
-        <div>
-                <label>
-                音声ファイル:
-                <input type="file" name="audio">
-            </label>
-        </div>
-        <div>
-                <label>
-                カテゴリー1:
-                <div>
-                <select name="category_id">
-                        <option value=""></option>
-                </select>
+                    <textarea name="sentence" rows="10" cols="50"></textarea>
                 </div>
             </label>
         </div>
         <div>
             <label>
-                カテゴリー２:
+                音声ファイル:
+                <input type="file" name="sentence_audio">
+            </label>
+        </div>
+        <div>
+            <label>
+                カテゴリ:
                 <div>
                 <select name="category_id">
-                        <option value=""></option>
+                  @foreach($categories as $category)
+                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endforeach
                 </select>
                 </div>
             </label>
         </div>
         <input type="submit" value="追加" class="button">
-    </form>
+        </form>
     </div>
 </main>
 @endsection

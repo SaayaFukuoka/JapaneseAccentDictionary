@@ -4,6 +4,20 @@
 
 @section('content')
 <main class="main_search">
+    <div id="cover">
+        <form method="" action="">
+        <div class="tb">
+            <div class="td"><input type="search" placeholder="Search" value=""></div>
+            <div class="td" id="s-cover">
+            <button type="submit" class="button_search">
+                <div id="s-circle"></div>
+                <span></span>
+            </button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div>
     <table class="search_results">
         <tr>
             <th></th>
@@ -14,6 +28,7 @@
             <th></th>
             <th>Category</th>
         </tr>
+        @forelse($words as $word)
         <tr>
             <td>
                 <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
@@ -24,7 +39,10 @@
             </td>
             <td>{{ $word->word }}</td>
             <td>
-                @foreach($hiraganas as $key=>$hiragana)
+                @foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana)
+                @php
+                    $accents = json_decode($word->word_accent, true);
+                @endphp
                     @if($accents[$key] === "1")
                     <span class="accent_accentless">{{ $hiragana }}</span>
                     @elseif($accents[$key] === "2")
@@ -53,6 +71,8 @@
                 {{ $word->category->name }}
             </td>
         </tr>
+        @empty
+        @endforelse
     </table>
     </div>
 </main>

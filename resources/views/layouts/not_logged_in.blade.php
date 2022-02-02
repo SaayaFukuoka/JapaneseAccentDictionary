@@ -3,12 +3,12 @@
 @section('header')
 <header>
     <div class="logo">
-        <a href="">JAD</a>
+        <a href="{{ route('words.index') }}">JAD</a>
     </div>
     <div class="header_nav">
         <ul class="haeder_nav_first">
             <li>
-                <a href="">
+                <a href="{{ route('words.index') }}">
                     Home
                 </a>
             </li>
@@ -16,10 +16,10 @@
                 <label for="menu_bar01">Categories</label>
                 <input type="checkbox" id="menu_bar01" />
                 <ul id="links01">
-                    <li><a href="">Work</a></li>
+                    <li><a href="{{ route('words.category', 1) }}">Work</a></li>
                     <li><a href="">Play</a></li>
                     <li><a href="">Trouble</a></li>
-                    <li><a href="">In the house</a></li>
+                    <li><a href="{{ route('words.category', 4) }}">In the house</a></li>
                     <li><a href="">Personality</a></li>
                     <li><a href="">Romance</a></li>
                     <li><a href="">Health</a></li>
@@ -35,12 +35,12 @@
                 </ul>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('likes.index') }}">
                     MyDictionary
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('register') }}">
                     Login
                 </a>
             </li>
@@ -50,18 +50,6 @@
 @endsection
 @section('footer')
 <footer>
-    <ul class="footer_nav">
-        <li>
-            <a href="">
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="">
-                Contact
-            </a>
-        </li>
-    </ul>
     <p class="copyrights"><small>JAD&copy; All Rights Reserved</small></p>
 </footer>
 @endsection

@@ -6,7 +6,7 @@
 <main class="main_home">
     <div class="carousel">
         <div>
-            <img src="LRG_DSC073144.jpeg" alt="画像1">
+            <img src="/images/LRG_DSC073144.jpeg" alt="JapaneseGarden">
             <div class="carousel_content">
                 <h1 class="title_home">
                     Japanese<br>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div>
-            <img src="LRG_DSC07324.jpeg" alt="画像2">
+            <img src="/images/LRG_DSC07324.jpeg" alt="AutumnLeaves">
             <div class="carousel_content">
                 <h1 class="title_home">
                     Japanese<br>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div>
-            <img src="DSC07040_14.jpg" alt="画像3">
+            <img src="/images/DSC07040_14.jpg" alt="Mountain">
             <div class="carousel_content">
                 <h1 class="title_home">
                     Japanese<br>
@@ -39,9 +39,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        // カルーセルにするセレクタを指定する
         $('.carousel').slick({
-            // ここに slick のオプションを指定
             dots: false,
             autoplay: true,
             autoplaySpeed: 3000,
@@ -50,11 +48,11 @@
     </script>
     <div>
         <div id="cover">
-            <form method="get" action="">
+            <form method="GET" action="{{ route('words.search') }}">
             <div class="tb">
-                <div class="td"><input type="search" placeholder="Search" required></div>
+                <div class="td"><input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif"></div>
                 <div class="td" id="s-cover">
-                <button type="submit">
+                <button type="submit" class="button_search">
                     <div id="s-circle"></div>
                     <span></span>
                 </button>
@@ -64,63 +62,64 @@
         </div>
         <table class="japanese_syllabary">
             <tr>
-                <td>わ</td>
-                <td>ら</td>
-                <td>や</td>
-                <td>ま</td>
-                <td>は</td>
-                <td>な</td>
-                <td>た</td>
-                <td>さ</td>
-                <td>か</td>
-                <td>あ</td>
+                <td><a href="">わ</a></td>
+                <td><a href="">ら</a></td>
+                <td><a href="">や</a></td>
+                <td><a href="">ま</a></td>
+                <td><a href="">は</a></td>
+                <td><a href="">な</a></td>
+                <td><a href="">た</a></td>
+                <td><a href="">さ</a></td>
+                <td><a href="">か</a></td>
+                <td><a href="">あ</a></td>
             </tr>
             <tr>
-                <td>を</td>
-                <td>り</td>
-                <td>ゆ</td>
-                <td>み</td>
-                <td>ひ</td>
-                <td>に</td>
-                <td>ち</td>
-                <td>し</td>
-                <td>き</td>
-                <td>い</td>
+                <td><a href="">を</a></td>
+                <td><a href="">り</a></td>
+                <td><a href="">ゆ</a></td>
+                <td><a href="">み</a></td>
+                <td><a href="">ひ</a></td>
+                <td><a href="">に</a></td>
+                <td><a href="">ち</a></td>
+                <td><a href="">し</a></td>
+                <td><a href="">き</a></td>
+                <td><a href="">い</a></td>
             </tr>
             <tr>
-                <td>ん</td>
-                <td>る</td>
-                <td>よ</td>
-                <td>む</td>
-                <td>ふ</td>
-                <td>ぬ</td>
-                <td>つ</td>
-                <td>す</td>
-                <td>く</td>
-                <td>う</td>
+                <td><a href="">ん</a></td>
+                <td><a href="">る</a></td>
+                <td><a href="">よ</a></td>
+                <td><a href="">む</a></td>
+                <td><a href="">ふ</a></td>
+                <td><a href="">ぬ</a></td>
+                <td><a href="">つ</a></td>
+                <td><a href="">す</a></td>
+                <td><a href="">く</a></td>
+                <td><a href="">う</a></td>
             </tr>
+            <tr>
                 <td></td>
-                <td>れ</td>
+                <td><a href="">れ</a></td>
                 <td></td>
-                <td>め</td>
-                <td>へ</td>
-                <td>ね</td>
-                <td>て</td>
-                <td>せ</td>
-                <td>け</td>
-                <td>え</td>
+                <td><a href="">め</a></td>
+                <td><a href="">へ</a></td>
+                <td><a href="">ね</a></td>
+                <td><a href="">て</a></td>
+                <td><a href="">せ</a></td>
+                <td><a href="">け</a></td>
+                <td><a href="">え</a></td>
             </tr>
-            </tr>
+            <tr>
                 <td></td>
-                <td>ろ</td>
+                <td><a href="">ろ</a></td>
                 <td></td>
-                <td>も</td>
-                <td>ほ</td>
-                <td>の</td>
-                <td>と</td>
-                <td>そ</td>
-                <td>こ</td>
-                <td>お</td>
+                <td><a href="">も</a></td>
+                <td><a href="">ほ</a></td>
+                <td><a href="">の</a></td>
+                <td><a href="">と</a></td>
+                <td><a href="">そ</a></td>
+                <td><a href="">こ</a></td>
+                <td><a href="">お</a></td>
             </tr>
         </table>
     </div>

@@ -14,10 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/words/search', 'WordController@search')->name('words.search');
+
+Route::get('/words/category/{category}', 'WordController@category')->name('words.category');
 
 Route::resource('words', 'WordController');
+
 
 Route::resource('likes', 'LikeController')->only([
     'index', 'store', 'destroy'
   ]);
+
+Route::patch('/words/{word}/toggle_like', 'WordController@toggleLike')->name('words.toggle_like');
+
+Auth::routes();
 
