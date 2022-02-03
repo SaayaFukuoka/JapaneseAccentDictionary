@@ -1,4 +1,4 @@
-@extends('layouts.not_logged_in')
+@extends('layouts.header')
 
 @section('title', $title)
 
@@ -62,64 +62,64 @@
         </div>
         <table class="japanese_syllabary">
             <tr>
-                <td><a href="">わ</a></td>
-                <td><a href="">ら</a></td>
-                <td><a href="">や</a></td>
-                <td><a href="">ま</a></td>
-                <td><a href="">は</a></td>
-                <td><a href="">な</a></td>
-                <td><a href="">た</a></td>
-                <td><a href="">さ</a></td>
-                <td><a href="">か</a></td>
-                <td><a href="">あ</a></td>
+                <td><a href="{{ route('words.hiragana', 'わ') }}">わ</a></td>
+                <td><a href="{{ route('words.hiragana', 'ら') }}">ら</a></td>
+                <td><a href="{{ route('words.hiragana', 'や') }}">や</a></td>
+                <td><a href="{{ route('words.hiragana', 'ま') }}">ま</a></td>
+                <td><a href="{{ route('words.hiragana', 'は') }}">は</a></td>
+                <td><a href="{{ route('words.hiragana', 'な') }}">な</a></td>
+                <td><a href="{{ route('words.hiragana', 'た') }}">た</a></td>
+                <td><a href="{{ route('words.hiragana', 'さ') }}">さ</a></td>
+                <td><a href="{{ route('words.hiragana', 'か') }}">か</a></td>
+                <td><a href="{{ route('words.hiragana', 'あ') }}">あ</a></td>
             </tr>
             <tr>
-                <td><a href="">を</a></td>
-                <td><a href="">り</a></td>
-                <td><a href="">ゆ</a></td>
-                <td><a href="">み</a></td>
-                <td><a href="">ひ</a></td>
-                <td><a href="">に</a></td>
-                <td><a href="">ち</a></td>
-                <td><a href="">し</a></td>
-                <td><a href="">き</a></td>
-                <td><a href="">い</a></td>
+                <td><a href="{{ route('words.hiragana', 'を') }}">を</a></td>
+                <td><a href="{{ route('words.hiragana', 'り') }}">り</a></td>
+                <td><a href="{{ route('words.hiragana', 'ゆ') }}">ゆ</a></td>
+                <td><a href="{{ route('words.hiragana', 'み') }}">み</a></td>
+                <td><a href="{{ route('words.hiragana', 'ひ') }}">ひ</a></td>
+                <td><a href="{{ route('words.hiragana', 'に') }}">に</a></td>
+                <td><a href="{{ route('words.hiragana', 'ち') }}">ち</a></td>
+                <td><a href="{{ route('words.hiragana', 'し') }}">し</a></td>
+                <td><a href="{{ route('words.hiragana', 'き') }}">き</a></td>
+                <td><a href="{{ route('words.hiragana', 'い') }}">い</a></td>
             </tr>
             <tr>
-                <td><a href="">ん</a></td>
-                <td><a href="">る</a></td>
-                <td><a href="">よ</a></td>
-                <td><a href="">む</a></td>
-                <td><a href="">ふ</a></td>
-                <td><a href="">ぬ</a></td>
-                <td><a href="">つ</a></td>
-                <td><a href="">す</a></td>
-                <td><a href="">く</a></td>
-                <td><a href="">う</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><a href="">れ</a></td>
-                <td></td>
-                <td><a href="">め</a></td>
-                <td><a href="">へ</a></td>
-                <td><a href="">ね</a></td>
-                <td><a href="">て</a></td>
-                <td><a href="">せ</a></td>
-                <td><a href="">け</a></td>
-                <td><a href="">え</a></td>
+                <td><a href="{{ route('words.hiragana', 'ん') }}">ん</a></td>
+                <td><a href="{{ route('words.hiragana', 'る') }}">る</a></td>
+                <td><a href="{{ route('words.hiragana', 'よ') }}">よ</a></td>
+                <td><a href="{{ route('words.hiragana', 'む') }}">む</a></td>
+                <td><a href="{{ route('words.hiragana', 'ふ') }}">ふ</a></td>
+                <td><a href="{{ route('words.hiragana', 'ぬ') }}">ぬ</a></td>
+                <td><a href="{{ route('words.hiragana', 'つ') }}">つ</a></td>
+                <td><a href="{{ route('words.hiragana', 'す') }}">す</a></td>
+                <td><a href="{{ route('words.hiragana', 'く') }}">く</a></td>
+                <td><a href="{{ route('words.hiragana', 'う') }}">う</a></td>
             </tr>
             <tr>
                 <td></td>
-                <td><a href="">ろ</a></td>
+                <td><a href="{{ route('words.hiragana', 'れ') }}">れ</a></td>
                 <td></td>
-                <td><a href="">も</a></td>
-                <td><a href="">ほ</a></td>
-                <td><a href="">の</a></td>
-                <td><a href="">と</a></td>
-                <td><a href="">そ</a></td>
-                <td><a href="">こ</a></td>
-                <td><a href="">お</a></td>
+                <td><a href="{{ route('words.hiragana', 'め') }}">め</a></td>
+                <td><a href="{{ route('words.hiragana', 'へ') }}">へ</a></td>
+                <td><a href="{{ route('words.hiragana', 'ね') }}">ね</a></td>
+                <td><a href="{{ route('words.hiragana', 'て') }}">て</a></td>
+                <td><a href="{{ route('words.hiragana', 'せ') }}">せ</a></td>
+                <td><a href="{{ route('words.hiragana', 'け') }}">け</a></td>
+                <td><a href="{{ route('words.hiragana', 'え') }}">え</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="{{ route('words.hiragana', 'ろ') }}">ろ</a></td>
+                <td></td>
+                <td><a href="{{ route('words.hiragana', 'も') }}">も</a></td>
+                <td><a href="{{ route('words.hiragana', 'ほ') }}">ほ</a></td>
+                <td><a href="{{ route('words.hiragana', 'の') }}">の</a></td>
+                <td><a href="{{ route('words.hiragana', 'と') }}">と</a></td>
+                <td><a href="{{ route('words.hiragana', 'そ') }}">そ</a></td>
+                <td><a href="{{ route('words.hiragana', 'こ') }}">こ</a></td>
+                <td><a href="{{ route('words.hiragana', 'お') }}">お</a></td>
             </tr>
         </table>
     </div>

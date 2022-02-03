@@ -12,20 +12,23 @@ use App\Category;
 
 class LikeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Word $word)
+    public function index(Request $request)
     {
+        $user = \Auth::user();
         $like_words = \Auth::user()->likeWords;
-        return view('likes.index', [
+        return $this->myview('likes.index', [
             'title' => 'MyDictionary',
-            'word' => $word,
-            'hiraganas' => mb_str_split($word->word_hiragana),
-            'accents' => json_decode($word->word_accent, true),
             'like_words' => $like_words,
+            'user' => $user,
           ]);
     }
 

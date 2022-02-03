@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WordController@index');
+
 Route::get('/words/search', 'WordController@search')->name('words.search');
 
 Route::get('/words/category/{category}', 'WordController@category')->name('words.category');
+
+Route::get('/words/hiragana/{char}', 'WordController@hiragana')->name('words.hiragana');
 
 Route::resource('words', 'WordController');
 

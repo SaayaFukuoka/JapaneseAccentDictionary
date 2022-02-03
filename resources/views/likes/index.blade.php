@@ -1,4 +1,4 @@
-@extends('layouts.logged_in')
+@extends('layouts.header')
 
 @section('title', $title)
 
@@ -31,15 +31,22 @@
         @forelse($like_words as $word)
         <tr>
             <td>
-                <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
-                    <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
-                        @csrf
-                        @method('patch')
-                    </form>
+                @if( $user->id == \Auth::user()->id)
+                    [<a href="{{ route('words.edit', $word) }}">編集</a>]
+                @else
+                    <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
+                        <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
+                            @csrf
+                            @method('patch')
+                        </form>
+                @endif
             </td>
             <td>{{ $word->word }}</td>
             <td>
-                @foreach($hiraganas as $key=>$hiragana)
+                @foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana)
+                @php
+                    $accents = json_decode($word->word_accent, true);
+                @endphp
                     @if($accents[$key] === "1")
                     <span class="accent_accentless">{{ $hiragana }}</span>
                     @elseif($accents[$key] === "2")

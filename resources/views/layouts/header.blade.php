@@ -16,22 +16,9 @@
                 <label for="menu_bar01">Categories</label>
                 <input type="checkbox" id="menu_bar01" />
                 <ul id="links01">
-                    <li><a href="{{ route('words.category', 1) }}">Work</a></li>
-                    <li><a href="">Play</a></li>
-                    <li><a href="">Trouble</a></li>
-                    <li><a href="">In the house</a></li>
-                    <li><a href="">Personality</a></li>
-                    <li><a href="">Romance</a></li>
-                    <li><a href="">Health</a></li>
-                    <li><a href="">Transpotation</a></li>
-                    <li><a href="">Food</a></li>
-                    <li><a href="">Travel</a></li>
-                    <li><a href="">Sport</a></li>
-                    <li><a href="">Fashion</a></li>
-                    <li><a href="">Five senses</a></li>
-                    <li><a href="">Phone</a></li>
-                    <li><a href="">Shopping</a></li>
-                    <li><a href="">Weather</a></li>
+                    @foreach($categories as $category)
+                    <li><a href="{{ route('words.category', $category) }}">{{ $category->name }}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li>
@@ -40,10 +27,16 @@
                 </a>
             </li>
             <li>
+                @if(Auth::check())
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <input type="submit" value="Logout">
                 </form>
+                @else
+                <a href="{{ route('login') }}">
+                    Login
+                </a>
+                @endif
             </li>
         </ul>
     </div>

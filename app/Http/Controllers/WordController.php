@@ -19,8 +19,10 @@ class WordController extends Controller
      */
     public function index()
     {
-        return view('words.index', [
+        
+        return $this->myview('words.index', [
             'title' => 'home',
+            
           ]);
   
     }
@@ -33,7 +35,7 @@ class WordController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('words.create', [
+        return $this->myview('words.create', [
             'title' => 'words_create',
              'categories' => $categories,
           ]);
@@ -75,7 +77,7 @@ class WordController extends Controller
             'category_id' => $request->category_id,
           ]);
           session()->flash('success', '単語を追加しました');
-          return redirect('/search');
+          return redirect('words.search');
     }
 
     /**
@@ -86,7 +88,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
-        return view('words.show', [
+        return $this->myview('words.show', [
             'title' => 'show',
             'word' =>$word,
             'hiraganas' => mb_str_split($word->word_hiragana),
@@ -103,7 +105,7 @@ class WordController extends Controller
      */
     public function edit($id)
     {
-        return view('words.edit', [
+        return $this->myview('words.edit', [
             'title' => 'words_edit',
           ]);
     }
@@ -133,6 +135,7 @@ class WordController extends Controller
 
     public function search(Request $request)
     {
+        $user = \Auth::user();
         $search = $request->input('search');
         if (!empty($search)) {
             $words = Word::where('word_hiragana', 'LIKE', '%' . $search . '%')
@@ -141,10 +144,11 @@ class WordController extends Controller
         }else{
             $words = Word::all();
         }
-        return view('words.search', [
+        return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,
             'search' => $search,
+            'user' => $user,
           ]);
     }
 
@@ -160,16 +164,30 @@ class WordController extends Controller
                 'word_id' => $word->id,
             ]);
         }
-        return redirect('/search');
+        return redirect('words.search');
     }
 
     public function category(Category $category)
     {
+        $user = \Auth::user();
         $words = Word::where('category_id', $category->id)->get();
-        return view('words.search', [
+        return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,
             'search' => '',
+            'user' => $user,
+          ]);
+    }
+
+    public function hiragana(Request $request, $char)
+    {
+        $user = \Auth::user();
+        $words = Word::where('word_hiragana', 'LIKE', $char. '%')->get();
+        return $this->myview('words.search', [
+            'title' => 'search',
+            'words' => $words,
+            'search' => '',
+            'user' => $user,
           ]);
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.not_logged_in')
+@extends('layouts.header')
 
 @section('title', $title)
 
@@ -7,7 +7,7 @@
     <div id="cover">
         <form method="" action="">
         <div class="tb">
-            <div class="td"><input type="search" placeholder="Search" value=""></div>
+            <div class="td"><input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif"></div>
             <div class="td" id="s-cover">
             <button type="submit" class="button_search">
                 <div id="s-circle"></div>
@@ -31,11 +31,15 @@
         @forelse($words as $word)
         <tr>
             <td>
-                <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
-                    <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
-                        @csrf
-                        @method('patch')
-                    </form>
+                @if( $user->id == \Auth::user()->id)
+                    [<a href="{{ route('words.edit', $word) }}">編集</a>]
+                @else
+                    <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
+                        <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
+                            @csrf
+                            @method('patch')
+                        </form>
+                @endif
             </td>
             <td>{{ $word->word }}</td>
             <td>
