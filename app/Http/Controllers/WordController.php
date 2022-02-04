@@ -33,6 +33,11 @@ class WordController extends Controller
      */
     public function create()
     {
+        if(\Auth::user()->id != 1)
+        {
+            abort(403);
+        }
+        
         $categories = Category::all();
         return $this->myview('words.create', [
             'title' => '単語追加',
@@ -106,6 +111,10 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
+        if(\Auth::user()->id != 1)
+        {
+            abort(403);
+        }
         return $this->myview('words.edit', [
             'title' => '単語編集',
             'word' => $word,
@@ -114,6 +123,10 @@ class WordController extends Controller
 
     public function editAudio(Word $word)
     {
+        if(\Auth::user()->id != 1)
+        {
+            abort(403);
+        }
         return $this->myview('words.edit_audio', [
             'title' => '音声編集',
             'word' => $word,

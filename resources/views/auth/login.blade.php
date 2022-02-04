@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.header')
  
 @section('content')
 <h1 class="title_login">Sign In</h1>

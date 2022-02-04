@@ -3,7 +3,6 @@
 @section('title', $title)
 
 @section('content')
-@if( $user->id == 1)
 <main class="main_search">
     <table class="search_results">
         <tr>
@@ -57,5 +56,4 @@
       $(event.currentTarget).next().submit();
   })
 </script>
-@endif
 @endsection

@@ -12,7 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function myview($view, $params)
+    protected function myview($view, $params=[])
     {
         $categories = Category::all();
         return view($view, $params+[

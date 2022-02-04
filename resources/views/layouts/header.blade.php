@@ -44,6 +44,18 @@
 @endsection
 @section('footer')
 <footer>
+    <ul class="footer_nav">
+            <li>
+                <a href="{{ route('words.index') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    Contact
+                </a>
+            </li>
+    </ul>
     <p class="copyrights"><small>JAD&copy; All Rights Reserved</small></p>
 </footer>
 @endsection
