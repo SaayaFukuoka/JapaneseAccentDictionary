@@ -30,3 +30,7 @@ Route::patch('/words/{word}/toggle_like', 'WordController@toggleLike')->name('wo
 
 Auth::routes();
 
+Route::get('/words/{word}/edit_audio', 'WordController@editAudio')->name('words.edit_audio');
+ 
+Route::patch('/words/{word}/edit_audio', 'WordController@updateAudio')->name('words.update_audio');
+

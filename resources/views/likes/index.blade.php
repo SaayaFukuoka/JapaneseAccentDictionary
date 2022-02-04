@@ -18,6 +18,7 @@
         </form>
     </div>
     <div>
+    @forelse($like_words as $word)
     <table class="search_results">
         <tr>
             <th class="table_transparent"></th>
@@ -28,18 +29,13 @@
             <th></th>
             <th>Category</th>
         </tr>
-        @forelse($like_words as $word)
         <tr>
             <td>
-                @if( $user->id == \Auth::user()->id)
-                    [<a href="{{ route('words.edit', $word) }}">編集</a>]
-                @else
-                    <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
-                        <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
-                            @csrf
-                            @method('patch')
-                        </form>
-                @endif
+                <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
+                    <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
+                        @csrf
+                        @method('patch')
+                    </form>
             </td>
             <td>{{ $word->word }}</td>
             <td>
@@ -75,9 +71,10 @@
                 {{ $word->category->name }}
             </td>
         </tr>
-        @empty
-        @endforelse
     </table>
+    @empty
+        <a>You currently have no words registered.</a>
+    @endforelse
     </div>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

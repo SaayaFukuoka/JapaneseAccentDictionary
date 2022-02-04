@@ -4,7 +4,7 @@
 
 @section('content')
 <main class="main_create">
-    <h1>単語を追加</h1>
+    <h1>{{ $title }}</h1>
     <div>
         <form method="POST" 
         action="{{ route('words.store') }}"

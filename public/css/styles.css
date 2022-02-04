@@ -4,6 +4,9 @@
 .success {
     color: green;
 }
+.delete {
+  display: inline;
+}
 
 body {
     min-width: 800px;

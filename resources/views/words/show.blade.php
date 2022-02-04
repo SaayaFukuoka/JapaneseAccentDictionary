@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('content')
+@if( $user->id == 1)
 <main class="main_search">
     <table class="search_results">
         <tr>
@@ -15,13 +16,6 @@
             <th>Category</th>
         </tr>
         <tr>
-            <td>
-                <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
-                    <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
-                        @csrf
-                        @method('patch')
-                    </form>
-            </td>
             <td>{{ $word->word }}</td>
             <td>
                 @foreach($hiraganas as $key=>$hiragana)
@@ -63,4 +57,5 @@
       $(event.currentTarget).next().submit();
   })
 </script>
+@endif
 @endsection

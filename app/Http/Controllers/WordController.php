@@ -9,6 +9,7 @@ use App\User;
 use App\Like;
 use App\Services\FileUploadService;
 use App\Category;
+use App\Http\Requests\WordAudioRequest;
 
 class WordController extends Controller
 {
@@ -19,10 +20,8 @@ class WordController extends Controller
      */
     public function index()
     {
-        
         return $this->myview('words.index', [
             'title' => 'home',
-            
           ]);
   
     }
@@ -36,7 +35,7 @@ class WordController extends Controller
     {
         $categories = Category::all();
         return $this->myview('words.create', [
-            'title' => 'words_create',
+            'title' => '単語追加',
              'categories' => $categories,
           ]);
   
@@ -77,7 +76,7 @@ class WordController extends Controller
             'category_id' => $request->category_id,
           ]);
           session()->flash('success', '単語を追加しました');
-          return redirect('words.search');
+          return redirect()->route('words.search');
     }
 
     /**
@@ -88,11 +87,13 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
+        $user = \Auth::user();
         return $this->myview('words.show', [
-            'title' => 'show',
+            'title' => '単語表示',
             'word' =>$word,
             'hiraganas' => mb_str_split($word->word_hiragana),
             'accents' => json_decode($word->word_accent, true),
+            'user' => $user,
           ]);
     }
 
@@ -103,13 +104,21 @@ class WordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Word $word)
     {
         return $this->myview('words.edit', [
-            'title' => 'words_edit',
+            'title' => '単語編集',
+            'word' => $word,
           ]);
     }
 
+    public function editAudio(Word $word)
+    {
+        return $this->myview('words.edit_audio', [
+            'title' => '音声編集',
+            'word' => $word,
+          ]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -117,10 +126,47 @@ class WordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, WordRequest $request)
     {
-        //
+        $word = Word::find($id);
+        $word->update($request->only(['word','word_hiragana', 'word_accent', 'sentence', 'category_id']));
+        session()->flash('success', '単語を編集しました');
+        return redirect()->route('words.search', $word);
     }
+
+    public function updateAudio($id, WordAudioRequest $request){
+ 
+        $path_word = '';
+        $word_audio = $request->file('word_audio');
+        if( isset($word_audio) === true ){
+            $path_word = $word_audio->store('word_audios', 'public');
+        }
+
+        $path_sentence = '';
+        $sentence_audio = $request->file('sentence_audio');
+        if( isset($sentence_audio) === true ){
+            $path_sentence = $sentence_audio->store('sentence_audios', 'public');
+        }
+ 
+        $word = Word::find($id);
+ 
+        if($word->word_audio !== ''){
+          \Storage::disk('public')->delete(\Storage::url($word->word_audio));
+        }
+        $word->update([
+          'word_audio' => $path_word, 
+        ]);
+
+        if($word->sentence_audio !== ''){
+            \Storage::disk('public')->delete(\Storage::url($word->sentence_audio));
+          }
+        $word->update([
+        'sentence_audio' => $path_sentence, 
+        ]);
+ 
+        session()->flash('success', '音声を変更しました');
+        return redirect()->route('words.search');
+      }
 
     /**
      * Remove the specified resource from storage.
@@ -128,9 +174,18 @@ class WordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Word $word)
     {
-        //
+        if($word->word_audio !== ''){
+          \Storage::disk('public')->delete($word->word_audio);
+        }
+        if($word->sentence_audio !== ''){
+            \Storage::disk('public')->delete($word->sentence_audio);
+          }
+ 
+        $word->delete();
+        session()->flash('success', '単語を削除しました');
+        return redirect()->route('words.search');
     }
 
     public function search(Request $request)
@@ -164,7 +219,7 @@ class WordController extends Controller
                 'word_id' => $word->id,
             ]);
         }
-        return redirect('words.search');
+        return redirect()->route('words.search');
     }
 
     public function category(Category $category)
