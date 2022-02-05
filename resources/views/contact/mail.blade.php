@@ -1,10 +1,10 @@
-お問い合わせ内容を受け付けました。<br>
+Thank you for your inquiry.<br>
 <br>
-■メールアドレス<br>
+■email<br>
 {!! $email !!}<br>
 <br>
-■タイトル<br>
+■title<br>
 {!! $title !!}<br>
 <br>
-■お問い合わせ内容<br>
+■Your inquiery<br>
 {!! nl2br($body) !!}<br>

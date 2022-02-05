@@ -18,7 +18,6 @@
         </form>
     </div>
     <div>
-    @forelse($like_words as $word)
     <table class="search_results">
         <tr>
             <th class="table_transparent"></th>
@@ -29,6 +28,7 @@
             <th></th>
             <th>Category</th>
         </tr>
+        @forelse($like_words as $word)
         <tr>
             <td>
                 <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
@@ -71,10 +71,11 @@
                 {{ $word->category->name }}
             </td>
         </tr>
-    </table>
-    @empty
+        @empty
         <a>You currently have no words registered.</a>
-    @endforelse
+        @endforelse
+    </table>
+    
     </div>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

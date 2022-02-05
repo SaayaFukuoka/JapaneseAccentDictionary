@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('contact.index') }}">
                     Contact
                 </a>
             </li>

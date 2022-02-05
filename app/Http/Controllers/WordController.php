@@ -232,7 +232,7 @@ class WordController extends Controller
                 'word_id' => $word->id,
             ]);
         }
-        return redirect()->route('words.search');
+        return back();
     }
 
     public function category(Category $category)
