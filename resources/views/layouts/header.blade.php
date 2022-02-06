@@ -33,7 +33,7 @@
                     <input type="submit" value="Logout">
                 </form>
                 @else
-                <a href="{{ route('login') }}">
+                <a href="{{ route('login') }}" class="button_common">
                     Login
                 </a>
                 @endif

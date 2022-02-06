@@ -46,6 +46,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return $this->myview('auth.login');
+        return $this->myview('auth.login',[
+            'title' => 'login'
+        ]);
     }
 }

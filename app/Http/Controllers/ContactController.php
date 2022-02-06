@@ -10,7 +10,9 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return $this->myview('contact.index');
+        return $this->myview('contact.index',[
+            'title' => 'Contact',
+        ]);
     }
 
 

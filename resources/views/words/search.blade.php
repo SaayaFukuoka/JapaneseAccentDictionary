@@ -17,11 +17,13 @@
         </div>
         </form>
     </div>
-    @if( $user->id == 1)
-        <div>
-            [<a href="{{ route('words.create') }}">単語追加</a>]
-        </div>
-    @endif
+    @auth
+        @if( $user->id == 1)
+            <div>
+                [<a href="{{ route('words.create') }}">単語追加</a>]
+            </div>
+        @endif
+    @endauth
     <div>
         <table class="search_results">
             <tr>
@@ -36,24 +38,28 @@
             @forelse($words as $word)
             <tr>
                 <td>
-                    @if( $user->id == 1)
-                        <form method="post" class="delete" action="{{ route('words.destroy', $word) }}">
-                            @csrf
-                            @method('delete')
-                        <input type="submit" value="削除">
-                        </form>
-                    @else
+                    @auth
+                        @if( $user->id == 1)
+                            <form method="post" class="delete" action="{{ route('words.destroy', $word) }}">
+                                @csrf
+                                @method('delete')
+                            <input type="submit" value="削除">
+                            </form>
+                        @else
                         <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
                             <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
                                 @csrf
                                 @method('patch')
                             </form>
-                    @endif
+                        @endif
+                    @endauth
                 </td>
                 <td>{{ $word->word }}
-                    @if( $user->id == 1)
-                        [<a href="{{ route('words.edit', $word) }}">編集</a>]
-                    @endif
+                    @auth
+                        @if( $user->id == 1)
+                            [<a href="{{ route('words.edit', $word) }}">編集</a>]
+                        @endif
+                    @endauth
                 </td>
                 <td>
                     @foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana)
@@ -74,9 +80,11 @@
                         <audio controls src="{{ asset('storage/' . $word->word_audio) }}"></audio>
                     @else
                     @endif
-                    @if( $user->id == 1)
-                        [<a href="{{ route('words.edit_audio', $word) }}">編集</a>]
-                    @endif
+                    @auth
+                        @if( $user->id == 1)
+                            [<a href="{{ route('words.edit_audio', $word) }}">編集</a>]
+                        @endif
+                    @endauth
                 </td>
                 <td>
                     {{ $word->sentence }}

@@ -1,3 +1,4 @@
+/*共通*/
 .error {
     color: red;
 }
@@ -7,417 +8,401 @@
 .delete {
   display: inline;
 }
-
 body {
     min-width: 800px;
     margin: 0;
-    background-color: white;
+    background-color: #FFFFFB;
     font-family: “游ゴシック“, YuGothic, “ヒラギノ角ゴ Pro W3”, “Hiragino Kaku Gothic Pro”, “メイリオ“, Meiryo, “ＭＳ Ｐゴシック“, “MS PGothic”, sans-serif;
-  }
+}
+h1{
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+.button_common{
   
-  /*ヘッダー*/
-  header{
-    justify-content: space-between;
-    background-color: white;
-    display: flex;
-    padding: 20px 40px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-    font-family: 'IM Fell DW Pica SC', serif;
-  }
-  .logo{
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-size: 1.5em;
-  }
-  
-  .header_nav{
-      margin-top: auto;
-      margin-bottom: auto;
-  }
-  
-  .haeder_nav_first{
-      margin:0 auto;
-      list-style-type: none;
-      display: flex;
-  }
-  .header_nav li{
-    padding-left: 30px;
-  }
-  header a{
-    color: black;
-    text-decoration: none;
-  }
-
-  .menu{
-    position:relative;
-  }
-  .menu a {
-      display: block;
-      padding: 15px;
-      text-decoration: none;
-      color: #000;
-  }
-  input[type="checkbox"] {
-      display: none;
-  }
-  .menu ul {
-      display: flex;
-      flex-wrap: wrap;
-      width: 300px;
-      z-index: 1;
-      position:absolute;
-      top:45px;
-      left:26px;
-      margin: 0;
-      padding: 0;
-      background :#efe8e8;
-      list-style: none;
-    
-  }
-  .menu li {
-      width: 33%;
-      height: 0;
-      overflow: hidden;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-      -ms-transition: all 0.5s;
-      -o-transition: all 0.5s;
-      transition: all 0.5s;
-      font-size: 2px;
-      padding-left: 0;
-      padding-right: 0;
-  }
-  
-  
-  #menu_bar01:checked ~ #links01 li{
-      height: 54px;
-      opacity: 1;
-  }
-  
-  /*フッター*/
-  footer{
-    background-color: white;
-    padding: 10px 0px 10px;
-    box-shadow: 0 -1px 10px rgba(0,0,0,0.05); 
-    font-family: 'IM Fell DW Pica SC', serif;
-  }
-  .footer_nav{
-    display: flex;
-  }
-  .footer_nav li{
-    margin: auto;
-    list-style-type: none;
-    padding-left: 30px;
-    
-  }
-  footer a{
-    color: black;
-    padding-left: 40px;
-    text-decoration: none;
-  }
-  
-  .copyrights {
-    font-size: 0.5em;
-      text-align: center;
-      margin: 0;
-  }
-
-  /*ログイン登録ページ*/
-  .title_login{
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-size: 2em;
-    text-align: center;
-  }
-  .main_login{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .main_login a{
-    text-decoration: none;
-    color:black;
-  }
-  .or{
-    margin: 0 50px;
-  }
-  
-  
-  /*HOMEページ*/
-  .title_home{
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-size: 4em;
-  }
-  
-  .main_home {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-  }
-  
-  /*カルーセル*/
-  .carousel {
-      width: 40%;
-      margin: 0 auto;
-  }
-  .carousel img{
-    width:500px;
-    height:auto;
-  }
-  /* 画像に合わせてカルーセルの高さを調整 */
-  .slick-slide {
-      height: auto;
-  }
-  /* 背景の色に合わせて前後の矢印の色を調整 */
-  .slick-prev:before,
-  .slick-next:before {
-      color: #000;
-  }
-  .carousel_content {
-      position: absolute;
-      top: 20%;left: 20%;
-      color: white;
-  }
-  
-  /*検索フォーム*/
-  
-  .tb {
-    display: table;
-    width: 100%;
-  }
-  
-  .td {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  
-  input[type="search"],
-  .button_search {
-    color: #fff;
-    font-family: 'IM Fell DW Pica SC', serif;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: transparent;
-    
-  }
-
-  input[type="search"]::-webkit-search-decoration,
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-results-button,
-  input[type="search"]::-webkit-search-results-decoration {
-    display: none;
-  }
-  
-  #cover {
-    padding: 35px;
-    background-color: #F0EFE8;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px #efe8e8, 0 0 0 20px #ffffffeb;
-    transform: scale(0.3);
-  }
-  
-  input[type="search"] {
-    width: 100%;
-    height: 96px;
-    font-size: 60px;
-    line-height: 1;
-    color: #D2B48C;
-    outline: none;
-  }
-  
-  input[type="search"]::placeholder {
-    color: #D2B48C;
-  }
-  
-  .button_search {
-    position: relative;
-    display: block;
-    width: 84px;
-    height: 96px;
-    cursor: pointer;
-  }
-  
-  #s-circle {
-    position: relative;
-    top: -8px;
-    left: 0;
-    width: 43px;
-    height: 43px;
-    margin-top: 0;
-    border-width: 15px;
-    border: 15px solid #fff;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: 0.5s ease all;
-  }
-  
-  .button_search span {
-    position: absolute;
-    top: 68px;
-    left: 43px;
-    display: block;
-    width: 45px;
-    height: 15px;
-    background-color: transparent;
-    border-radius: 10px;
-    transform: rotateZ(52deg);
-    transition: 0.5s ease all;
-  }
-  
-  .button_search span:before,
-  .button_search span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 45px;
-    height: 15px;
-    background-color: #fff;
-    border-radius: 10px;
-    transform: rotateZ(0);
-    transition: 0.5s ease all;
-  }
-  
-  
-  
-  /*５０音表*/
-  .japanese_syllabary {
-    border-spacing: 10px 10px;
-    margin:auto;
-  }
-  .japanese_syllabary td{
-    border: solid 1.5px #FCFBF4;
-    background-color: #FCFBF4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px;
-    border-radius: 10px;
-    font-family: 'UD デジタル 教科書体 NK-R';
-  }
-  .japanese_syllabary tr:nth-child(4) td:nth-child(1){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-  .japanese_syllabary tr:nth-child(5) td:nth-child(1){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-  .japanese_syllabary tr:nth-child(4) td:nth-child(3){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-  .japanese_syllabary tr:nth-child(5) td:nth-child(3){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-  .japanese_syllabary a{
-      color: black;
-      text-decoration: none;
-  }
+}
 
 
-  
-  
-  
-  /*searchページ*/
-  .main_search {
-      width: 100%;
-      padding-bottom: 20px
-  }
-  
-  .search_results {
-    border-spacing: 10px 10px;
-    margin:auto;
-  }
+/*ヘッダー*/
+header{
+justify-content: space-between;
+background-color: white;
+display: flex;
+padding: 20px 40px;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+font-family: 'IM Fell DW Pica SC', serif;
+}
+.logo{
+font-family: 'IM Fell DW Pica SC', serif;
+font-size: 1.5em;
+}
+.header_nav{
+margin-top: auto;
+margin-bottom: auto;
+}
+.haeder_nav_first{
+margin:0 auto;
+list-style-type: none;
+display: flex;
+}
+.header_nav li{
+padding-left: 30px;
+}
+.menu{
+position:relative;
+}
+.menu a {
+display: block;
+padding: 15px;
+}
+input[type="checkbox"] {
+display: none;
+}
+.menu ul {
+display: flex;
+flex-wrap: wrap;
+width: 300px;
+z-index: 1;
+position:absolute;
+top:45px;
+left:26px;
+margin: 0;
+padding: 0;
+background :#efe8e8;
+list-style: none;
+}
+.menu li {
+width: 33%;
+height: 0;
+overflow: hidden;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+font-size: 2px;
+padding-left: 0;
+padding-right: 0;
+}
+#menu_bar01:checked ~ #links01 li{
+height: 54px;
+opacity: 1;
+}
+
+/*フッター*/
+footer{
+background-color: white;
+padding: 5px 0px;
+box-shadow: 0 -1px 10px rgba(0,0,0,0.05); 
+font-family: 'IM Fell DW Pica SC', serif;
+}
+.footer_nav{
+display: flex;
+justify-content: center;
+padding-left: 0px;
+}
+.footer_nav li{
+list-style-type: none;
+padding: 0px 20px;
+font-size: small;
+}
+.copyrights {
+font-size: 0.5em;
+text-align: center;
+margin: 0;
+}
+
+/*loginページ*/
+.page_title{
+  text-align: center;
+}
+.flex{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.or{
+margin: 0 50px;
+}
+
+/*HOMEページ*/
+.title_home{
+font-family: 'IM Fell DW Pica SC', serif;
+font-size: 4em;
+}
+.main_home {
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+
+/*カルーセル*/
+.carousel {
+width: 40%;
+margin: 0 auto;
+}
+.carousel img{
+width:500px;
+height:auto;
+}
+/* 画像に合わせてカルーセルの高さを調整 */
+.slick-slide {
+height: auto;
+}
+/* 背景の色に合わせて前後の矢印の色を調整 */
+.slick-prev:before,
+.slick-next:before {
+color: #000;
+}
+.carousel_content {
+position: absolute;
+top: 20%;left: 20%;
+color: white;
+}
+
+/*検索フォーム*/
+
+.tb {
+display: table;
+width: 100%;
+}
+
+.td {
+display: table-cell;
+vertical-align: middle;
+}
+
+input[type="search"],
+.button_search {
+color: #fff;
+font-family: 'IM Fell DW Pica SC', serif;
+padding: 0;
+margin: 0;
+border: 0;
+background-color: transparent;
+
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+display: none;
+}
+
+#cover {
+padding: 35px;
+background-color: #F0EFE8;
+border-radius: 20px;
+box-shadow: 0 10px 40px #efe8e8, 0 0 0 20px #ffffffeb;
+transform: scale(0.3);
+}
+
+input[type="search"] {
+width: 100%;
+height: 96px;
+font-size: 60px;
+line-height: 1;
+color: #D2B48C;
+outline: none;
+}
+
+input[type="search"]::placeholder {
+color: #D2B48C;
+}
+
+.button_search {
+position: relative;
+display: block;
+width: 84px;
+height: 96px;
+cursor: pointer;
+}
+
+#s-circle {
+position: relative;
+top: -8px;
+left: 0;
+width: 43px;
+height: 43px;
+margin-top: 0;
+border-width: 15px;
+border: 15px solid #fff;
+background-color: transparent;
+border-radius: 50%;
+transition: 0.5s ease all;
+}
+
+.button_search span {
+position: absolute;
+top: 68px;
+left: 43px;
+display: block;
+width: 45px;
+height: 15px;
+background-color: transparent;
+border-radius: 10px;
+transform: rotateZ(52deg);
+transition: 0.5s ease all;
+}
+
+.button_search span:before,
+.button_search span:after {
+content: "";
+position: absolute;
+bottom: 0;
+right: 0;
+width: 45px;
+height: 15px;
+background-color: #fff;
+border-radius: 10px;
+transform: rotateZ(0);
+transition: 0.5s ease all;
+}
 
 
-  .search_results th{
-    border: solid 1.5px #efe8e8;
-    background-color: #efe8e8;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px;
-    border-radius: 10px;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-weight: normal;
-    color:#D2B48C;
-  }
 
-  .search_results td{
-    border: solid 1.5px #FCFBF4;
-    background-color: #FCFBF4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px;
-    border-radius: 10px;
-    font-family: 'UD デジタル 教科書体 NK-R';
-  }
+/*５０音表*/
+.japanese_syllabary {
+border-spacing: 10px 10px;
+margin:auto;
+}
+.japanese_syllabary td{
+border: solid 1.5px #FCFBF4;
+background-color: #FCFBF4;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+padding: 10px;
+border-radius: 10px;
+font-family: 'UD デジタル 教科書体 NK-R';
+}
+.japanese_syllabary tr:nth-child(4) td:nth-child(1){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+.japanese_syllabary tr:nth-child(5) td:nth-child(1){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+.japanese_syllabary tr:nth-child(4) td:nth-child(3){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+.japanese_syllabary tr:nth-child(5) td:nth-child(3){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+.japanese_syllabary a{
+color: black;
+text-decoration: none;
+}
 
-  .search_results td:nth-child(1){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
 
-  .search_results th:nth-child(1){
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-  
-  .accent_accentless{
-    border-top: solid  #B72F3B 1.5px;
-    padding-top: 1px;
-  }
-  
-  .accent_high{
-    border-top: solid  #B72F3B 1.5px;
-    padding-top: 1px;
-    background-image: url(../images/accent.png);
-    background-size:1px;
-    background-repeat: no-repeat;
-    background-position: right top;
-  }
-  
-  audio{
-    width: 200px;
-    height:40px;
-  }
+
+
+
+/*searchページ*/
+.main_search {
+width: 100%;
+padding-bottom: 20px
+}
+
+.search_results {
+border-spacing: 10px 10px;
+margin:auto;
+}
+
+
+.search_results th{
+border: solid 1.5px #efe8e8;
+background-color: #efe8e8;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+padding: 10px;
+border-radius: 10px;
+font-family: 'IM Fell DW Pica SC', serif;
+font-weight: normal;
+color:#D2B48C;
+}
+
+.search_results td{
+border: solid 1.5px #FCFBF4;
+background-color: #FCFBF4;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+padding: 10px;
+border-radius: 10px;
+font-family: 'UD デジタル 教科書体 NK-R';
+}
+
+.search_results td:nth-child(1){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+
+.search_results th:nth-child(1){
+background-color: transparent;
+box-shadow: none;
+border: none;
+}
+
+.accent_accentless{
+border-top: solid  #B72F3B 1.5px;
+padding-top: 1px;
+}
+
+.accent_high{
+border-top: solid  #B72F3B 1.5px;
+padding-top: 1px;
+background-image: url(../images/accent.png);
+background-size:1px;
+background-repeat: no-repeat;
+background-position: right top;
+}
+
+audio{
+width: 200px;
+height:40px;
+}
 
 /*単語追加ページ*/
 .main_create {
-  width: 100%;
-  justify-content: space-between;
+width: 100%;
+justify-content: space-between;
 }
 input[type="text"]{
-    font-family: 'IM Fell DW Pica SC', serif;
-    padding: 0;
-    margin: 0;
-  }
+font-family: 'IM Fell DW Pica SC', serif;
+padding: 0;
+margin: 0;
+}
 
 /*単語一覧ページ*/
 /*お気に入りボタン*/
 .like_button {
-  cursor: pointer;
+cursor: pointer;
 }
 .like {
-  display: inline;
+display: inline;
 }
 .like_post {
-    background-color: #dccaca;
-    border-top: solid 1px #e67c2e;
-    border-bottom: solid 1px #e67c2e;
+background-color: #dccaca;
+border-top: solid 1px #e67c2e;
+border-bottom: solid 1px #e67c2e;
 }
 .like_post .post_body_heading {
-    background-color: #dccaca;
+background-color: #dccaca;
 }
 .like_post .post_comments {
-    background-color: #e4d6c7;
+background-color: #e4d6c7;
 }
 .like_post .like_button {
-    color: rgb(253, 205, 245);
+color: rgb(253, 205, 245);
 }
 
-  
-  
+
