@@ -8,11 +8,20 @@
 .delete {
   display: inline;
 }
+html{
+  height: 100%;
+}
 body {
-    min-width: 800px;
-    margin: 0;
-    background-color: #FFFFFB;
-    font-family: “游ゴシック“, YuGothic, “ヒラギノ角ゴ Pro W3”, “Hiragino Kaku Gothic Pro”, “メイリオ“, Meiryo, “ＭＳ Ｐゴシック“, “MS PGothic”, sans-serif;
+  min-width: 1000px;
+  margin: 0;
+  height: 100%;
+  background-color: #FFFFFB;
+  font-family: “游ゴシック“, YuGothic, “ヒラギノ角ゴ Pro W3”, “Hiragino Kaku Gothic Pro”, “メイリオ“, Meiryo, “ＭＳ Ｐゴシック“, “MS PGothic”, sans-serif;
+}
+main{
+  height: 100%;
+  min-height: 500px;
+  max-height: 500px;
 }
 h1{
   font-family: 'IM Fell DW Pica SC', serif;
@@ -21,10 +30,55 @@ a{
   text-decoration: none;
   color:black;
 }
-.button_common{
-  
+label{
+  font-family: 'IM Fell DW Pica SC', serif;
 }
-
+.button_common_section{
+  max-width: 100px;
+  margin: 50px 0 0 auto;
+}
+.button_reset{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-family: 'IM Fell DW Pica SC', serif;
+  color:white;
+}
+a.button_common {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+}
+a.button_common span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background: #CECA96;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+a.button_common:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
 
 /*ヘッダー*/
 header{
@@ -91,6 +145,16 @@ padding-right: 0;
 height: 54px;
 opacity: 1;
 }
+.button_header{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-size: 1em;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
 
 /*フッター*/
 footer{
@@ -115,19 +179,113 @@ text-align: center;
 margin: 0;
 }
 
-/*loginページ*/
+/*SingInページ*/
+.main_login{
+  margin-bottom: 10px;
+  display:flex;
+  justify-content:space-around;
+}
+.flex{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
 .page_title{
   text-align: center;
 }
-.flex{
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+.input_space{
+  margin-bottom: 30px;
+}
+.input_size{
+  width: 300px;
+  height: 30px;
 }
 .or{
-margin: 0 50px;
+  display: flex;
+  align-items: center; 
 }
+.or a{
+  color: #C7C2AF;
+  font-family: 'IM Fell DW Pica SC', serif;
+  margin: 100px 100px 50px 100px;
+}
+
+.button_register_section {
+  width: 200px;
+  margin: 100px 0px 50px 0px;
+}
+.button_register{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-size: 1em;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+a.button_register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: #e8a48b;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 2.0;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  position: relative;
+}
+a.button_register:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 40px 0 0;
+  border-color: #ffffff transparent transparent transparent;
+}
+a.button_register:after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 40px 30px;
+  border-color: transparent transparent #efefef transparent;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.15);
+  transform: rotate(16deg);
+}
+a.button_register:hover {
+  background-color: #B13A45;
+}
+a.button_register span {
+  position: relative;
+  padding-left: 16px;
+  letter-spacing: 0.05em;
+}
+a.button_register span:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -4px;
+}
+
 
 /*HOMEページ*/
 .title_home{

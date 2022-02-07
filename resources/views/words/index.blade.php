@@ -60,6 +60,7 @@
             </div>
             </form>
         </div>
+        <div>
         <table class="japanese_syllabary">
             <tr>
                 <td><a href="{{ route('words.hiragana', 'わ') }}">わ</a></td>
@@ -122,6 +123,7 @@
                 <td><a href="{{ route('words.hiragana', 'お') }}">お</a></td>
             </tr>
         </table>
+    </div>
     </div>
 </main>
 @endsection

@@ -23,18 +23,18 @@
             </li>
             <li>
                 <a href="{{ route('likes.index') }}">
-                    MyDictionary
+                    My Dictionary
                 </a>
             </li>
             <li>
                 @if(Auth::check())
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <input type="submit" value="Logout">
+                    <input type="submit" value="Logout" class="button_header">
                 </form>
                 @else
-                <a href="{{ route('login') }}" class="button_common">
-                    Login
+                <a href="{{ route('login') }}">
+                    Sign In
                 </a>
                 @endif
             </li>
