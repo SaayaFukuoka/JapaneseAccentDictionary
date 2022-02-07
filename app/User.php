@@ -36,4 +36,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function words(){
+        return $this->hasMany('App\Word');
+    }
+    
+    public function likes(){
+      return $this->hasMany('App\Like');
+    }
+ 
+    public function likeWords(){
+      return $this->belongsToMany('App\Word', 'likes')
+      ->withPivot(['created_at'])
+      ->orderBy('pivot_created_at', 'desc');
+    }
+    
 }
