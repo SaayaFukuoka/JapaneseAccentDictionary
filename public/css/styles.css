@@ -60,7 +60,7 @@ a.button_common span {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 30px;
+  height: 35px;
   background: #CECA96;
   box-sizing: border-box;
   color: #333;
@@ -126,6 +126,7 @@ left:26px;
 margin: 0;
 padding: 0;
 background :#efe8e8;
+opacity: 0.85;
 list-style: none;
 }
 .menu li {
@@ -137,7 +138,7 @@ overflow: hidden;
 -ms-transition: all 0.5s;
 -o-transition: all 0.5s;
 transition: all 0.5s;
-font-size: 2px;
+font-size: 0.7em;
 padding-left: 0;
 padding-right: 0;
 }
@@ -179,9 +180,9 @@ text-align: center;
 margin: 0;
 }
 
-/*SingInページ*/
-.main_login{
-  margin-bottom: 10px;
+/*SingIn、Register、contactページ*/
+.main_common{
+  margin-bottom: 50px;
   display:flex;
   justify-content:space-around;
 }
@@ -198,7 +199,7 @@ margin: 0;
 }
 .input_size{
   width: 300px;
-  height: 30px;
+  height: 25px;
 }
 .or{
   display: flex;
@@ -285,6 +286,41 @@ a.button_register span:before {
   left: 0;
   margin-top: -4px;
 }
+
+/*confirmページ*/
+a.button_send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+}
+a.button_send span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  background: #e8a48b;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+a.button_send:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
+
 
 
 /*HOMEページ*/
@@ -535,7 +571,6 @@ width: 100%;
 justify-content: space-between;
 }
 input[type="text"]{
-font-family: 'IM Fell DW Pica SC', serif;
 padding: 0;
 margin: 0;
 }

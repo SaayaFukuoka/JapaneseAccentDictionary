@@ -73,6 +73,8 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return $this->myview('auth.register');
+        return $this->myview('auth.register',[
+            'title' => 'Register',
+        ]);
     }
 }

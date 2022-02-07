@@ -28,6 +28,7 @@ class ContactController extends Controller
 
         return $this->myview('contact.confirm', [
             'inputs' => $inputs,
+            'title' => 'Contact',
         ]);
     }
 
@@ -54,7 +55,9 @@ class ContactController extends Controller
 
             $request->session()->regenerateToken();
 
-            return $this->myview('contact.thanks');
+            return $this->myview('contact.thanks',[
+                'title' => 'thanks',
+            ]);
             
         }
     }
