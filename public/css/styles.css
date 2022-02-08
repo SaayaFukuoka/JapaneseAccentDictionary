@@ -3,7 +3,7 @@
     color: red;
 }
 .success {
-    color: green;
+    color: #905D54;
 }
 .delete {
   display: inline;
@@ -33,10 +33,125 @@ a{
 label{
   font-family: 'IM Fell DW Pica SC', serif;
 }
-.button_common_section{
-  max-width: 100px;
-  margin: 50px 0 0 auto;
+.main_common{
+  margin-bottom: 50px;
+  display:flex;
+  justify-content:space-around;
 }
+.flex{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.page_title{
+  text-align: center;
+}
+.input_space{
+  margin-bottom: 30px;
+}
+.input_size{
+  width: 300px;
+  height: 25px;
+}
+.or{
+  display: flex;
+  align-items: center; 
+}
+.or a{
+  color: #C7C2AF;
+  font-family: 'IM Fell DW Pica SC', serif;
+  margin: 100px 100px 50px 100px;
+}
+
+/*ヘッダーとフッター*/
+header{
+  justify-content: space-between;
+  background-color: white;
+  display: flex;
+  padding: 20px 40px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+.logo{
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 1.5em;
+}
+.header_nav{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.haeder_nav_first{
+  margin:0 auto;
+  list-style-type: none;
+  display: flex;
+}
+.header_nav li{
+  padding-left: 30px;
+}
+.menu{
+  position:relative;
+}
+.menu a {
+  display: block;
+  padding: 15px;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  z-index: 1;
+  position:absolute;
+  top:45px;
+  left:26px;
+  margin: 0;
+  padding: 0;
+  background :#efe8e8;
+  opacity: 0.85;
+  list-style: none;
+}
+.menu li {
+  width: 33%;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 0.7em;
+  padding-left: 0;
+  padding-right: 0;
+}
+#menu_bar01:checked ~ #links01 li{
+  height: 54px;
+  opacity: 1;
+}
+footer{
+  background-color: white;
+  padding: 5px 0px;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.05); 
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+.footer_nav{
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+}
+.footer_nav li{
+  list-style-type: none;
+  padding: 0px 20px;
+  font-size: small;
+}
+.copyrights {
+  font-size: 0.5em;
+  text-align: center;
+  margin: 0;
+}
+
+/*ボタン*/
 .button_reset{
   background-color: transparent;
   border: none;
@@ -46,6 +161,20 @@ label{
   appearance: none;
   font-family: 'IM Fell DW Pica SC', serif;
   color:white;
+}
+.button_header{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-size: 1em;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+.button_common_section{
+  max-width: 100px;
+  margin: 50px 0 0 auto;
 }
 a.button_common {
   display: flex;
@@ -79,138 +208,6 @@ a.button_common:hover span {
   top: 0;
   box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
 }
-
-/*ヘッダー*/
-header{
-justify-content: space-between;
-background-color: white;
-display: flex;
-padding: 20px 40px;
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-font-family: 'IM Fell DW Pica SC', serif;
-}
-.logo{
-font-family: 'IM Fell DW Pica SC', serif;
-font-size: 1.5em;
-}
-.header_nav{
-margin-top: auto;
-margin-bottom: auto;
-}
-.haeder_nav_first{
-margin:0 auto;
-list-style-type: none;
-display: flex;
-}
-.header_nav li{
-padding-left: 30px;
-}
-.menu{
-position:relative;
-}
-.menu a {
-display: block;
-padding: 15px;
-}
-input[type="checkbox"] {
-display: none;
-}
-.menu ul {
-display: flex;
-flex-wrap: wrap;
-width: 300px;
-z-index: 1;
-position:absolute;
-top:45px;
-left:26px;
-margin: 0;
-padding: 0;
-background :#efe8e8;
-opacity: 0.85;
-list-style: none;
-}
-.menu li {
-width: 33%;
-height: 0;
-overflow: hidden;
--webkit-transition: all 0.5s;
--moz-transition: all 0.5s;
--ms-transition: all 0.5s;
--o-transition: all 0.5s;
-transition: all 0.5s;
-font-size: 0.7em;
-padding-left: 0;
-padding-right: 0;
-}
-#menu_bar01:checked ~ #links01 li{
-height: 54px;
-opacity: 1;
-}
-.button_header{
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-  font-size: 1em;
-  font-family: 'IM Fell DW Pica SC', serif;
-}
-
-/*フッター*/
-footer{
-background-color: white;
-padding: 5px 0px;
-box-shadow: 0 -1px 10px rgba(0,0,0,0.05); 
-font-family: 'IM Fell DW Pica SC', serif;
-}
-.footer_nav{
-display: flex;
-justify-content: center;
-padding-left: 0px;
-}
-.footer_nav li{
-list-style-type: none;
-padding: 0px 20px;
-font-size: small;
-}
-.copyrights {
-font-size: 0.5em;
-text-align: center;
-margin: 0;
-}
-
-/*SingIn、Register、contactページ*/
-.main_common{
-  margin-bottom: 50px;
-  display:flex;
-  justify-content:space-around;
-}
-.flex{
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-.page_title{
-  text-align: center;
-}
-.input_space{
-  margin-bottom: 30px;
-}
-.input_size{
-  width: 300px;
-  height: 25px;
-}
-.or{
-  display: flex;
-  align-items: center; 
-}
-.or a{
-  color: #C7C2AF;
-  font-family: 'IM Fell DW Pica SC', serif;
-  margin: 100px 100px 50px 100px;
-}
-
 .button_register_section {
   width: 200px;
   margin: 100px 0px 50px 0px;
@@ -286,8 +283,55 @@ a.button_register span:before {
   left: 0;
   margin-top: -4px;
 }
-
-/*confirmページ*/
+a.button_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+}
+a.button_delete span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+  background: #e8a48b;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+a.button_edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 4px;
+}
+a.button_edit span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 25px;
+  background: #CECA96;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
 a.button_send {
   display: flex;
   justify-content: center;
@@ -322,280 +366,263 @@ a.button_send:hover span {
 }
 
 
-
 /*HOMEページ*/
 .title_home{
-font-family: 'IM Fell DW Pica SC', serif;
-font-size: 4em;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 4em;
 }
 .main_home {
-width: 100%;
-display: flex;
-justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-
 /*カルーセル*/
 .carousel {
-width: 40%;
-margin: 0 auto;
+  width: 40%;
+  margin: 0 auto;
 }
 .carousel img{
-width:500px;
-height:auto;
+  width:500px;
+  height:auto;
 }
 /* 画像に合わせてカルーセルの高さを調整 */
 .slick-slide {
-height: auto;
+  height: auto;
 }
 /* 背景の色に合わせて前後の矢印の色を調整 */
 .slick-prev:before,
 .slick-next:before {
-color: #000;
+  color: #000;
 }
 .carousel_content {
-position: absolute;
-top: 20%;left: 20%;
-color: white;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  color: white;
 }
-
 /*検索フォーム*/
-
 .tb {
-display: table;
-width: 100%;
+  display: table;
+  width: 100%;
 }
-
 .td {
-display: table-cell;
-vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
 }
-
 input[type="search"],
 .button_search {
-color: #fff;
-font-family: 'IM Fell DW Pica SC', serif;
-padding: 0;
-margin: 0;
-border: 0;
-background-color: transparent;
-
+  color: #fff;
+  font-family: 'IM Fell DW Pica SC', serif;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
 }
-
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-display: none;
+  display: none;
 }
-
 #cover {
-padding: 35px;
-background-color: #F0EFE8;
-border-radius: 20px;
-box-shadow: 0 10px 40px #efe8e8, 0 0 0 20px #ffffffeb;
-transform: scale(0.3);
+  padding: 35px;
+  background-color: #F0EFE8;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px #efe8e8, 0 0 0 20px #ffffffeb;
+  transform: scale(0.3);
 }
-
 input[type="search"] {
-width: 100%;
-height: 96px;
-font-size: 60px;
-line-height: 1;
-color: #D2B48C;
-outline: none;
+  width: 100%;
+  height: 96px;
+  font-size: 60px;
+  line-height: 1;
+  color: #D2B48C;
+  outline: none;
 }
-
 input[type="search"]::placeholder {
-color: #D2B48C;
+  color: #D2B48C;
 }
-
 .button_search {
-position: relative;
-display: block;
-width: 84px;
-height: 96px;
-cursor: pointer;
+  position: relative;
+  display: block;
+  width: 84px;
+  height: 96px;
+  cursor: pointer;
 }
-
 #s-circle {
-position: relative;
-top: -8px;
-left: 0;
-width: 43px;
-height: 43px;
-margin-top: 0;
-border-width: 15px;
-border: 15px solid #fff;
-background-color: transparent;
-border-radius: 50%;
-transition: 0.5s ease all;
+  position: relative;
+  top: -8px;
+  left: 0;
+  width: 43px;
+  height: 43px;
+  margin-top: 0;
+  border-width: 15px;
+  border: 15px solid #fff;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: 0.5s ease all;
 }
-
 .button_search span {
-position: absolute;
-top: 68px;
-left: 43px;
-display: block;
-width: 45px;
-height: 15px;
-background-color: transparent;
-border-radius: 10px;
-transform: rotateZ(52deg);
-transition: 0.5s ease all;
+  position: absolute;
+  top: 68px;
+  left: 43px;
+  display: block;
+  width: 45px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  transform: rotateZ(52deg);
+  transition: 0.5s ease all;
 }
-
 .button_search span:before,
 .button_search span:after {
-content: "";
-position: absolute;
-bottom: 0;
-right: 0;
-width: 45px;
-height: 15px;
-background-color: #fff;
-border-radius: 10px;
-transform: rotateZ(0);
-transition: 0.5s ease all;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  transform: rotateZ(0);
+  transition: 0.5s ease all;
 }
-
-
-
 /*５０音表*/
 .japanese_syllabary {
-border-spacing: 10px 10px;
-margin:auto;
+  border-spacing: 10px 10px;
+  margin:auto;
 }
 .japanese_syllabary td{
-border: solid 1.5px #FCFBF4;
-background-color: #FCFBF4;
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-padding: 10px;
-border-radius: 10px;
-font-family: 'UD デジタル 教科書体 NK-R';
+  border: solid 1.5px #FCFBF4;
+  background-color: #FCFBF4;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'UD デジタル 教科書体 NK-R';
 }
 .japanese_syllabary tr:nth-child(4) td:nth-child(1){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 .japanese_syllabary tr:nth-child(5) td:nth-child(1){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 .japanese_syllabary tr:nth-child(4) td:nth-child(3){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 .japanese_syllabary tr:nth-child(5) td:nth-child(3){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 .japanese_syllabary a{
-color: black;
-text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
-
-
-
 
 
 /*searchページ*/
 .main_search {
-width: 100%;
-padding-bottom: 20px
+  width: 100%;
+  padding-bottom: 50px;
+  height: auto;
+  max-height: none;
 }
-
 .search_results {
-border-spacing: 10px 10px;
-margin:auto;
+  border-spacing: 10px 10px;
+  margin:auto;
 }
-
-
 .search_results th{
-border: solid 1.5px #efe8e8;
-background-color: #efe8e8;
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-padding: 10px;
-border-radius: 10px;
-font-family: 'IM Fell DW Pica SC', serif;
-font-weight: normal;
-color:#D2B48C;
+  border: solid 1.5px #efe8e8;
+  background-color: #efe8e8;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-weight: normal;
+  color:#D2B48C;
 }
-
 .search_results td{
-border: solid 1.5px #FCFBF4;
-background-color: #FCFBF4;
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-padding: 10px;
-border-radius: 10px;
-font-family: 'UD デジタル 教科書体 NK-R';
+  border: solid 1.5px #FCFBF4;
+  background-color: #FCFBF4;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'UD デジタル 教科書体 NK-R';
 }
-
 .search_results td:nth-child(1){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
-
 .search_results th:nth-child(1){
-background-color: transparent;
-box-shadow: none;
-border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
-
 .accent_accentless{
-border-top: solid  #B72F3B 1.5px;
-padding-top: 1px;
+  border-top: solid  #B72F3B 1.5px;
+  padding-top: 1px;
 }
-
 .accent_high{
-border-top: solid  #B72F3B 1.5px;
-padding-top: 1px;
-background-image: url(../images/accent.png);
-background-size:1px;
-background-repeat: no-repeat;
-background-position: right top;
+  border-top: solid  #B72F3B 1.5px;
+  padding-top: 1px;
+  background-image: url(../images/accent.png);
+  background-size: 1px;
+  background-repeat: no-repeat;
+  background-position: right top;
 }
-
 audio{
-width: 200px;
-height:40px;
+  width: 200px;
+  height: 40px;
 }
-
-/*単語追加ページ*/
-.main_create {
-width: 100%;
-justify-content: space-between;
+.search_flex{
+  display: flex;
+  flex-flow: column;
 }
-input[type="text"]{
-padding: 0;
-margin: 0;
-}
-
-/*単語一覧ページ*/
 /*お気に入りボタン*/
 .like_button {
-cursor: pointer;
-}
-.like {
-display: inline;
-}
-.like_post {
-background-color: #dccaca;
-border-top: solid 1px #e67c2e;
-border-bottom: solid 1px #e67c2e;
-}
-.like_post .post_body_heading {
-background-color: #dccaca;
-}
-.like_post .post_comments {
-background-color: #e4d6c7;
-}
-.like_post .like_button {
-color: rgb(253, 205, 245);
-}
+  cursor: pointer;
+  }
+  .like {
+  display: inline;
+  }
+  .like_post {
+  background-color: #dccaca;
+  border-top: solid 1px #e67c2e;
+  border-bottom: solid 1px #e67c2e;
+  }
+  .like_post .post_body_heading {
+  background-color: #dccaca;
+  }
+  .like_post .post_comments {
+  background-color: #e4d6c7;
+  }
+  .like_post .like_button {
+  color: rgb(253, 205, 245);
+  }
 
 
+/*crete.editページ*/
+.main_edit{
+  width: 100%;
+  padding-bottom: 50px;
+  height: auto;
+  max-height: none;
+}
+.input_space_left{
+  margin-left: 20px;
+}
+
+/*MyDictionaryページ*/
+.main_like {
+  width: 100%;
+  padding-bottom: 50px;
+  height: auto;
+  max-height: none;
+}

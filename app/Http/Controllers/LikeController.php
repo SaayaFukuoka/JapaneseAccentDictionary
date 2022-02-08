@@ -26,7 +26,7 @@ class LikeController extends Controller
         $user = \Auth::user();
         $like_words = \Auth::user()->likeWords;
         return $this->myview('likes.index', [
-            'title' => 'MyDictionary',
+            'title' => 'My Dictionary',
             'like_words' => $like_words,
             'user' => $user,
           ]);

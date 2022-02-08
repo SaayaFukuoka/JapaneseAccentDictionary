@@ -26,7 +26,11 @@
               </label>
           </div>
           <div class="button_common_section">
-            <a class="button_common"><span><input type="submit" value="next" class="button_reset"></span></a>
+            <a class="button_common">
+              <span>
+                <input type="submit" value="next" class="button_reset">
+              </span>
+            </a>
           </div>
       </form>
     </div>
