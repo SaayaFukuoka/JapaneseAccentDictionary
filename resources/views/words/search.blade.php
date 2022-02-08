@@ -5,22 +5,24 @@
 @section('content')
 <main class="main_search">
     <div id="cover">
-        <form method="" action="">
-        <div class="tb">
-            <div class="td"><input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif"></div>
-            <div class="td" id="s-cover">
-            <button type="submit" class="button_search">
-                <div id="s-circle"></div>
-                <span></span>
-            </button>
+        <form method="GET" action="{{ route('words.search') }}">
+            <div class="tb">
+                <div class="td">
+                    <input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif">
+                </div>
+                <div class="td" id="s-cover">
+                    <button type="submit" class="button_search">
+                        <div id="s-circle"></div>
+                        <span></span>
+                    </button>
+                </div>
             </div>
-        </div>
         </form>
     </div>
     @auth
         @if( $user->id == 1)
             <div>
-                [<a href="{{ route('words.create') }}">単語追加</a>]
+                <a href="{{ route('words.create') }}"><h1 class="page_title">Add Words</h1></a>
             </div>
         @endif
     @endauth
@@ -40,11 +42,33 @@
                 <td>
                     @auth
                         @if( $user->id == 1)
-                            <form method="post" class="delete" action="{{ route('words.destroy', $word) }}">
-                                @csrf
-                                @method('delete')
-                            <input type="submit" value="削除">
-                            </form>
+                        <div class="search_flex">
+                            <div>
+                                <form method="post" class="delete" action="{{ route('words.destroy', $word) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <a class="button_delete">
+                                        <span>
+                                            <input type="submit" value="delete" class="button_reset">
+                                        </span>
+                                    </a>  
+                                </form>
+                            </div>
+                            <div>
+                                <a href="{{ route('words.edit', $word) }}" class="button_edit">
+                                    <span>
+                                        word
+                                    </span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{{ route('words.edit_audio', $word) }}" class="button_edit">
+                                    <span>
+                                        audio
+                                    </span>
+                                </a> 
+                            </div>
+                        </div>
                         @else
                         <a class="like_button">{{ $word->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
                             <form method="post" class="like" action="{{ route('words.toggle_like', $word) }}">
@@ -54,12 +78,8 @@
                         @endif
                     @endauth
                 </td>
-                <td>{{ $word->word }}
-                    @auth
-                        @if( $user->id == 1)
-                            [<a href="{{ route('words.edit', $word) }}">編集</a>]
-                        @endif
-                    @endauth
+                <td>
+                    {{ $word->word }}
                 </td>
                 <td>
                     @foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana)
@@ -80,11 +100,6 @@
                         <audio controls src="{{ asset('storage/' . $word->word_audio) }}"></audio>
                     @else
                     @endif
-                    @auth
-                        @if( $user->id == 1)
-                            [<a href="{{ route('words.edit_audio', $word) }}">編集</a>]
-                        @endif
-                    @endauth
                 </td>
                 <td>
                     {{ $word->sentence }}

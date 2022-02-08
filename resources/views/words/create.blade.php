@@ -3,70 +3,78 @@
 @section('title', $title)
 
 @section('content')
-<main class="main_create">
-    <h1>{{ $title }}</h1>
-    <div>
-        <form method="POST" 
-        action="{{ route('words.store') }}"
-        enctype="multipart/form-data">
-        @csrf
-        <div>
-            <label>
-                単語:
-                <div>
-                    <input type="text" name="word">
-                </div>
-            </label>
-        </div>
-        <div>
-            <label>
-                ひらがな:
-                <div>
-                    <input type="text" name="word_hiragana">
-                </div>
-            </label>
-        </div>
-        <div>
-            <label>
-                アクセント:
-                <div>
-                    <input type="text" name="word_accent">
-                </div>
-            </label>
-        </div>
-        <div>
-            <label>
-                音声ファイル:
-                <input type="file" name="word_audio">
-            </label>
-        </div>
+<main class="main_edit">
+    <h1 class="page_title">{{ $title }}</h1>
+    <div class="flex">
+        <form 
+            method="POST" 
+            action="{{ route('words.store') }}"
+            enctype="multipart/form-data"
+        >
+            @csrf
             <div>
-            <label>
-                例文:
-                <div>
-                    <textarea name="sentence" rows="10" cols="50"></textarea>
-                </div>
-            </label>
-        </div>
-        <div>
-            <label>
-                音声ファイル:
-                <input type="file" name="sentence_audio">
-            </label>
-        </div>
-        <div>
-            <label>
-                カテゴリ:
-                <div>
-                <select name="category_id">
-                  @foreach($categories as $category)
-                      <option value="{{ $category->id }}">{{ $category->name }}</option>
-                  @endforeach
-                </select>
-                </div>
-            </label>
-        </div>
-        <input type="submit" value="追加" class="button">
+                <label>
+                    word
+                    <div class="input_space">
+                        <input type="text" name="word" class="input_size">
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    hiragana
+                    <div class="input_space">
+                        <input type="text" name="word_hiragana" class="input_size">
+                    </div>
+                </label>
+            </div>
+            <div class="flex">
+                <label>
+                    accent
+                    <div class="input_space">
+                        <input type="text" name="word_accent" class="input_size">
+                    </div>
+                </label>
+                <label class="input_space_left">
+                    audio
+                    <div class="input_space">
+                        <input type="file" name="word_audio">
+                    </div>
+                </label>
+            </div>
+            <div class="flex">
+                <label>
+                    example sentence
+                    <div class="input_space">
+                        <textarea name="sentence" rows="2" cols="43"></textarea>
+                    </div>
+                </label>
+                <label class="input_space_left">
+                    audio
+                    <div class="input_space">
+                        <input type="file" name="sentence_audio">
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>
+                    category
+                    <div class="input_space">
+                        <select name="category_id" class="input_size">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                </label>
+            </div>
+            <div class="button_common_section">
+                <a class="button_common">
+                    <span>
+                        <input type="submit" value="add" class="button_reset">
+                    </span>
+                </a>
+            </div>
         </form>
     </div>
 </main>
