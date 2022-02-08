@@ -49,15 +49,17 @@
     <div>
         <div id="cover">
             <form method="GET" action="{{ route('words.search') }}">
-            <div class="tb">
-                <div class="td"><input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif"></div>
-                <div class="td" id="s-cover">
-                <button type="submit" class="button_search">
-                    <div id="s-circle"></div>
-                    <span></span>
-                </button>
+                <div class="tb">
+                    <div class="td">
+                        <input type="search" name="search" placeholder="Search" value="@if (isset($search)) {{ $search }} @endif">
+                    </div>
+                    <div class="td" id="s-cover">
+                        <button type="submit" class="button_search">
+                            <div id="s-circle"></div>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
         <div>

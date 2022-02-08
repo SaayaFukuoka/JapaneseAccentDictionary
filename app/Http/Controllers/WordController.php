@@ -40,7 +40,7 @@ class WordController extends Controller
         
         $categories = Category::all();
         return $this->myview('words.create', [
-            'title' => '単語追加',
+            'title' => 'add words',
              'categories' => $categories,
           ]);
   
@@ -94,7 +94,7 @@ class WordController extends Controller
     {
         $user = \Auth::user();
         return $this->myview('words.show', [
-            'title' => '単語表示',
+            'title' => 'word',
             'word' =>$word,
             'hiraganas' => mb_str_split($word->word_hiragana),
             'accents' => json_decode($word->word_accent, true),
@@ -116,7 +116,7 @@ class WordController extends Controller
             abort(403);
         }
         return $this->myview('words.edit', [
-            'title' => '単語編集',
+            'title' => 'edit word',
             'word' => $word,
           ]);
     }
@@ -128,7 +128,7 @@ class WordController extends Controller
             abort(403);
         }
         return $this->myview('words.edit_audio', [
-            'title' => '音声編集',
+            'title' => 'edit audio',
             'word' => $word,
           ]);
     }

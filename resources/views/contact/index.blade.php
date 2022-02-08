@@ -43,7 +43,11 @@
                     </label> 
                 </div>
                 <div class="button_common_section">
-                    <a class="button_common"><span><button type="submit" class="button_reset">next</button></span></a>
+                    <a class="button_common">
+                        <span>
+                            <button type="submit" class="button_reset">next</button>
+                        </span>
+                    </a>
                 </div>
             </form>
         </div>
