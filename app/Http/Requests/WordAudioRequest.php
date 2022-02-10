@@ -25,10 +25,12 @@ class WordAudioRequest extends FormRequest
     {
         return [
             'word_audio' => [
+                'required',
                 'file', 
                 'mimes:audio/mpeg,mpga,mp3,wav', 
             ],
             'sentence_audio' => [
+                'required',
                 'file', 
                 'mimes:audio/mpeg,mpga,mp3,wav', 
             ],

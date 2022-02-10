@@ -525,13 +525,30 @@ input[type="search"]::placeholder {
   text-decoration: none;
 }
 
-
 /*searchページ*/
 .main_search {
   width: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   height: auto;
   max-height: none;
+}
+.pagination {
+  margin-top: 50px;
+  text-align: center;
+  padding-left: 0;
+}
+.pagination li{
+  display: inline-block;
+  background-color: #F0EFE8;
+  padding: 3px 10px;
+  color: #C0A089;
+  border-radius: 4px;
+}
+.page-link {
+  color: #C0A089;
+}
+.pagination li:hover:not(.active) {
+  background-color: #ddd;
 }
 .search_results {
   border-spacing: 10px 10px;
@@ -608,7 +625,7 @@ audio{
   }
 
 
-/*crete.editページ*/
+/*create.editページ*/
 .main_edit{
   width: 100%;
   padding-bottom: 50px;
@@ -622,7 +639,7 @@ audio{
 /*MyDictionaryページ*/
 .main_like {
   width: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   height: auto;
   max-height: none;
 }
