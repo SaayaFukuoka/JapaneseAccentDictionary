@@ -209,9 +209,10 @@ class WordController extends Controller
             $words = Word::where('word_hiragana', 'LIKE', '%' . $search . '%')
             ->orWhere('word', 'LIKE', '%' . $search . '%')
             ->orderBy('word_hiragana', 'asc')
-            ->get();
+            ->paginate(15);
         }else{
-            $words = Word::orderBy('word_hiragana', 'asc')->get();
+            $words = Word::orderBy('word_hiragana', 'asc')
+            ->paginate(15);
         }
         return $this->myview('words.search', [
             'title' => 'search',
@@ -241,7 +242,7 @@ class WordController extends Controller
         $user = \Auth::user();
         $words = Word::where('category_id', $category->id)
         ->orderBy('word_hiragana', 'asc')
-        ->get();
+        ->paginate(15);
         return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,
@@ -255,7 +256,7 @@ class WordController extends Controller
         $user = \Auth::user();
         $words = Word::where('word_hiragana', 'LIKE', $char. '%')
         ->orderBy('word_hiragana', 'asc')
-        ->get();
+        ->paginate(15);
         return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,

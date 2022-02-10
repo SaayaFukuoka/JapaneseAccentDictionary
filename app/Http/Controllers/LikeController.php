@@ -24,7 +24,7 @@ class LikeController extends Controller
     public function index(Request $request)
     {
         $user = \Auth::user();
-        $like_words = \Auth::user()->likeWords;
+        $like_words = \Auth::user()->likeWords()->paginate(15);
         return $this->myview('likes.index', [
             'title' => 'My Dictionary',
             'like_words' => $like_words,
