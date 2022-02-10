@@ -28,11 +28,13 @@ class WordRequest extends FormRequest
             'word_hiragana' => ['required', 'max:255'],
             'word_accent' => ['required', 'max:255'],
             'word_audio' => [
+                'required',
                 'file', 
                 'mimes:audio/mpeg,mpga,mp3,wav', 
             ],
             'sentence' => ['required', 'max:255'],
             'sentence_audio' => [
+                'required',
                 'file', 
                 'mimes:audio/mpeg,mpga,mp3,wav', 
             ],
