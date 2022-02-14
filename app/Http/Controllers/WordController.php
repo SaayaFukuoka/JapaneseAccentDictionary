@@ -208,9 +208,11 @@ class WordController extends Controller
         if (!empty($search)) {
             $words = Word::where('word_hiragana', 'LIKE', '%' . $search . '%')
             ->orWhere('word', 'LIKE', '%' . $search . '%')
-            ->get();
+            ->orderBy('word_hiragana', 'asc')
+            ->paginate(15);
         }else{
-            $words = Word::all();
+            $words = Word::orderBy('word_hiragana', 'asc')
+            ->paginate(15);
         }
         return $this->myview('words.search', [
             'title' => 'search',
@@ -238,7 +240,9 @@ class WordController extends Controller
     public function category(Category $category)
     {
         $user = \Auth::user();
-        $words = Word::where('category_id', $category->id)->get();
+        $words = Word::where('category_id', $category->id)
+        ->orderBy('word_hiragana', 'asc')
+        ->paginate(15);
         return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,
@@ -250,7 +254,9 @@ class WordController extends Controller
     public function hiragana(Request $request, $char)
     {
         $user = \Auth::user();
-        $words = Word::where('word_hiragana', 'LIKE', $char. '%')->get();
+        $words = Word::where('word_hiragana', 'LIKE', $char. '%')
+        ->orderBy('word_hiragana', 'asc')
+        ->paginate(15);
         return $this->myview('words.search', [
             'title' => 'search',
             'words' => $words,

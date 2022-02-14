@@ -63,6 +63,9 @@
                 @empty
                 @endforelse
             </table>
+            <div>
+                {{ $like_words->links() }}
+            </div>
         </main>
     @else
         <main class="main_common">
