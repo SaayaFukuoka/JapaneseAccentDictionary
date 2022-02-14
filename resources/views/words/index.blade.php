@@ -77,7 +77,7 @@
                 <td><a href="{{ route('words.hiragana', 'あ') }}">あ</a></td>
             </tr>
             <tr>
-                <td><a href="{{ route('words.hiragana', 'を') }}">を</a></td>
+                <td>を</td>
                 <td><a href="{{ route('words.hiragana', 'り') }}">り</a></td>
                 <td><a href="{{ route('words.hiragana', 'ゆ') }}">ゆ</a></td>
                 <td><a href="{{ route('words.hiragana', 'み') }}">み</a></td>
@@ -89,7 +89,7 @@
                 <td><a href="{{ route('words.hiragana', 'い') }}">い</a></td>
             </tr>
             <tr>
-                <td><a href="{{ route('words.hiragana', 'ん') }}">ん</a></td>
+                <td>ん</td>
                 <td><a href="{{ route('words.hiragana', 'る') }}">る</a></td>
                 <td><a href="{{ route('words.hiragana', 'よ') }}">よ</a></td>
                 <td><a href="{{ route('words.hiragana', 'む') }}">む</a></td>
