@@ -47,8 +47,7 @@ class User extends Authenticatable
  
     public function likeWords(){
       return $this->belongsToMany('App\Word', 'likes')
-      ->withPivot(['word_id'])
-      ->orderBy('pivot_word_id', 'asc');
+      ->orderBy('word_hiragana', 'asc');
     }
     
 }

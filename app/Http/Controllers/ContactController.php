@@ -52,7 +52,7 @@ class ContactController extends Controller
 
         } else {
             \Mail::to($inputs['email'])->send(new ContactSendmail($inputs));
-
+            \Mail::to('japaneseaccentdictionary.jad@gmail.com')->send(new ContactSendmail($inputs));
             $request->session()->regenerateToken();
 
             return $this->myview('contact.thanks',[
