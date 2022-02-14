@@ -82,18 +82,19 @@
                     {{ $word->word }}
                 </td>
                 <td>
-                    @foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana)
-                    @php
-                        $accents = json_decode($word->word_accent, true);
-                    @endphp
-                        @if($accents[$key] === "1")
-                        <span class="accent_accentless">{{ $hiragana }}</span>
-                        @elseif($accents[$key] === "2")
-                        <span class="accent_high">{{ $hiragana }}</span>
-                        @else
-                        {{ $hiragana }}
-                        @endif
-                    @endforeach
+                    @php    
+                        foreach(mb_str_split($word->word_hiragana) as $key=>$hiragana){
+                            $accents = json_decode($word->word_accent, true);
+                                if($accents[$key] === "1"){
+                                    print '<span class="accent_accentless">' . e($hiragana) . '</span>';
+                                }
+                                elseif($accents[$key] === "2"){
+                                    print '<span class="accent_high">' . e($hiragana) . '</span>';
+                                }else{
+                                    print e($hiragana);
+                                }
+                        }
+                    @endphp  
                 </td>
                 <td>
                     @if($word->word_audio !== '')
